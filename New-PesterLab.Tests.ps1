@@ -8,9 +8,9 @@ $location = "West Europe"
 
 
 Describe "Template: $template" {
-    BeforeAll {
-        New-AzureRmResourceGroup -Name $TempValidationRG -Location $Location
-    }
+    # BeforeAll {
+    #     New-AzureRmResourceGroup -Name $TempValidationRG -Location $Location
+    # }
  
     
     Context "Template Syntax" {
@@ -32,8 +32,8 @@ Describe "Template: $template" {
             'contentVersion',
             'parameters',
             'variables',
-            'resources',                                
-            'outputs'
+            'resources'                                
+           # 'outputs'
             $templateProperties = (get-content "$here\azuredeploy.json" | ConvertFrom-Json -ErrorAction SilentlyContinue) | Get-Member -MemberType NoteProperty | % Name
             $templateProperties | Should Be $expectedProperties
             }
@@ -67,7 +67,7 @@ Describe "Template: $template" {
    }
  
  
-    AfterAll {
-        Remove-AzureRmResourceGroup $TempValidationRG -Force
-    }
+    # AfterAll {
+    #     Remove-AzureRmResourceGroup $TempValidationRG -Force
+    # }
 }
