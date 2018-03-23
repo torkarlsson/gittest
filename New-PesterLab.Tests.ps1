@@ -31,8 +31,8 @@ Describe "Template: $template" {
             $expectedProperties = '$schema',
             'contentVersion',
             'parameters',
-            'variables',
-            'resources'                                
+            'resources', 
+            'variables'                               
            # 'outputs'
             $templateProperties = (get-content "$here\azuredeploy.json" | ConvertFrom-Json -ErrorAction SilentlyContinue) | Get-Member -MemberType NoteProperty | % Name
             $templateProperties | Should Be $expectedProperties
