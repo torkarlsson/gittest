@@ -12,7 +12,7 @@ Describe "Resource Group tests" -tag "AzureInfrastructure" {
 
 Describe "Hub Tests" -tag "AzureInfrastructure" {
     Context "Notification" {
-        $nHub=Get-AzureRmNotificationHub -Name "GEN-UNIQUE" -ResourceGroupName $resourceGroup -ErrorAction SilentlyContinue
+        $nHub=Get-AzureRmNotificationHub -ResourceGroup $resourceGroup  -ErrorAction SilentlyContinue
 
         it "Check Hub $nHub Exists" {
             $nHub | Should Not be $null
